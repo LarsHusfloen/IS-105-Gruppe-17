@@ -2,5 +2,5 @@
 
 Gruppe repository for Gruppe 17
 
-	- Lars Husfloen
+  - Lars Husfloen
   - Cristian Tolsoa Montecinos
