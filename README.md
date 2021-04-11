@@ -3,5 +3,8 @@
 Gruppe repository for Gruppe 17
 
   - Lars Husfloen
-  - Cristian Tolsoa Montecinos
   - Adel Heskestad
+  - Eskil
+  - Michal
+
+  Inneholder oppgaver knyttet til IS-105.
