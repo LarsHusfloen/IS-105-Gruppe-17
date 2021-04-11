@@ -6,11 +6,11 @@ int main()
 {
     pid_t pid; /* defines pid as the name of variable of the type pid_t */
 
-    pid = fork(); /* makes a child process and stores it's id inn pid */
+    pid = fork(); /* makes a child process and stores it's id to pid */
 
     if (pid < 0) /* checks if the child process was establihed properly */
     {
-        printf("Failed to create fork."); /* prints the string to the terminal */
+        printf("Failed to create fork.\n"); /* prints the string to the terminal */
         return -1; 
     }
 
