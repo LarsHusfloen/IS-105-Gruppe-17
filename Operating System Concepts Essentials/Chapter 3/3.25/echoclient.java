@@ -17,11 +17,12 @@ public class echoclient {
             pout.println(bin); /* Puts bin in the socket */
             sc.close(); /* Closes the scanner */
 
-            String line;
-            while ((line = reader.readLine()) != null) {/* True if socket contain anything */
-                System.out.println(line); /* Prints in the terminal */
-        }
+            do {
+                System.out.println(reader.readLine()); /* Prints in the terminal */
+            } while (reader.read() != -1);/* Runs until the end of the stream */
+            
             sock.close(); /* close the socket connection */
+            System.exit(0);
         } catch (IOException ioe) {
             System.err.println(ioe); /* Prints exception if it couldnt establish connection to socket and read/write */
         }
