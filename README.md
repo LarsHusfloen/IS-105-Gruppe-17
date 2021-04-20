@@ -4,7 +4,7 @@ Gruppe repository for Gruppe 17
 
   - Lars Husfloen
   - Adel Heskestad
-  - Eskil
-  - Michal
+  - Eskil Fotland Aaseng
+  - Michal Ziolkowski
 
   Inneholder oppgaver knyttet til IS-105.
