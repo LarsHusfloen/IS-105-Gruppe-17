@@ -10,7 +10,7 @@ public class quoteclient {
             
             String line;
             while ((line = bin.readLine()) != null) /* True if socket contain anything */
-                System.out.println(line); /* Prints in the terminal */
+                System.out.println(line); 
             sock.close(); /* close the socket connection */
         } catch (IOException ioe) {
             System.err.println(ioe); /* Prints exception if it couldnt establish connection to socket and read/write */
