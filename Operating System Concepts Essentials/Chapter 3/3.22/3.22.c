@@ -10,9 +10,9 @@
 
 int main()
 {
-    pid_t pid;                    /* defines pid as the name of variable of the type pid_t */
-    int num, shm_fd, size = 4096; /* defines variables of the type integer, and setts the value of size to 4096 */
-    char *name = "SharedMemory";  /* Defines the name to be used */
+    pid_t pid;                    
+    int num, shm_fd, size = 4096; 
+    char *name = "SharedMemory";  
     void *ptr;                    /* Setts the pointer to be used to transfer the data to and from the shared memory */
 
     shm_fd = shm_open(name, O_CREAT | O_RDWR, 0666);
@@ -20,32 +20,32 @@ int main()
      O_RDWR; open to read and write, gives the directory permisson for the object */
     if (shm_fd < 0)
     {                                             /* Checks if the memory object was created succsesfully */
-        printf("Couldn't create chared memory."); /* prints the string to the terminal */
+        printf("Couldn't create chared memory."); 
         return -1;
     }
     ftruncate(shm_fd, size);                                /* Configures the size of the object in bytes */
     ptr = mmap(0, size, PROT_WRITE, MAP_SHARED, shm_fd, 0); /* Establishes a memory mapped file containing the shared memory object,
      also returns a pointer to the file that is used to access the memory object */
 
-    printf("Enter a positiv number to run through The Collatz conjecture: "); /* prints the string to the terminal */
-    scanf("%d", &num);                                                        /* takes the input and setts the value to num */
+    printf("Enter a positiv number to run through The Collatz conjecture: "); 
+    scanf("%d", &num);                                                        
     if (num <= 0)
     {                                                      /* Checks if the input is a positive integer */
-        printf("The number must be a positiv integer.\n"); /* Prints the string in terminal */
-        exit(0);                                           /* Exits the program */
+        printf("The number must be a positiv integer.\n"); 
+        exit(0);                                           
     }
 
-    pid = fork(); /* makes a child process and stores it's id to pid */
+    pid = fork(); 
 
     if (pid < 0) /* checks if the child process was establihed properly */
     {
-        printf("Failed to create fork.\n"); /* prints the string to the terminal */
+        printf("Failed to create fork.\n"); 
         return -1;
     }
 
     if (pid == 0) /* checks if the pid is equal to 0, if true it's the child process */
     {
-        printf("Start of child process\n"); /* prints the string to the terminal */
+        printf("Start of child process\n"); 
 
         while (num > 1) /* Ensures that the following code will run as long as num is higher than 1, therefor it stops when num reaches 1 */
         {
@@ -62,15 +62,15 @@ int main()
             }
         }
         sprintf(ptr, "%d\n", num);             /* Writes to the shared memory object */
-        printf("The child process is done\n"); /* prints the string to the terminal */
+        printf("The child process is done\n"); 
     }
     else
     {
-        printf("Parent process wait for child process.\n"); /* prints the string to the terminal */
+        printf("Parent process wait for child process.\n"); 
         wait(NULL);                                         /* Parent process wait for child process to complete */
         printf("Parent:\n%s", (char *)ptr);                 /* Read/print from the shared memory object */
 
-        printf("The parent process is done\n"); /* prints the string to the terminal */
+        printf("The parent process is done\n"); 
         shm_unlink(name);                       /* Removes the shared memory object */
     }
     return 0;
