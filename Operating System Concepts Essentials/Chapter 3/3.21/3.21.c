@@ -11,41 +11,46 @@ int main()
     printf("Enter the number to run: "); 
     scanf("%d", &num);                   
     if (num <= 0)
-    {                                                      /* Checks if the input is a positive integer */
-        printf("The number must be a positiv integer.\n"); /
+    {                                                     
+        printf("The number must be a positiv integer.\n"); 
         exit(0);                                           
     }
 
     pid = fork(); 
-
-    if (pid < 0) /* checks if the child process was establihed properly */
+    
+    /* checks if the child process was establihed properly */
+    if (pid < 0) 
     {
         printf("Failed to create fork.\n"); 
         return -1;
     }
 
-    if (pid == 0) /* checks if the pid is equal to 0, if true it's the child process */
+    /* checks the pid for child process */
+    if (pid == 0) 
     {
         printf("Start of child process\n"); 
-        while (num > 1)                     /* Ensures that the following code will run as long as num is higher than 1, therefor it stops when num reaches 1 */
+        
+        /* Calculation according to The Collatz conjecture while above 1 */
+        while (num > 1)                    
         {
-            printf("%d\n", num); /* Prints the value of num for every loop */
-            if (num % 2 == 0)    /* Checks if num is even or odd, if true num is even */
+            printf("%d\n", num);
+            if (num % 2 == 0)    
             {
-                num = num / 2; /* Calculation according to The Collatz conjecture */
+                num = num / 2; 
             }
-            else if (num % 2 == 1) /* Checks if num is even or odd, if true num is odd */
+            else if (num % 2 == 1) 
             {
-                num = 3 * num + 1; /* Calculation according to The Collatz conjecture */
+                num = 3 * num + 1; 
             }
         }
-        printf("%d\n", num);                   /* Prints the value of num */
+        printf("%d\n", num);
         printf("The child process is done\n"); 
     }
     else
     {
+        /* Parent process wait for child process to complete */
         printf("Parent process wait for child process.\n"); 
-        wait(NULL);                                         /* Parent process wait for child process to complete */
+        wait(NULL);                                         
         printf("The parent process is done\n");             
     }
     return 0;
