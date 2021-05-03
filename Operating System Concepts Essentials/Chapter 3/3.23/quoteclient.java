@@ -1,19 +1,30 @@
+/* Deler av kode hentet eller modifisert fra 
+Silverschatz figure 3.22 side 139 */
+
 import java.net.*;
 import java.io.*;
 
 public class quoteclient {
     public static void main(String[] args) {
         try {
-            Socket sock = new Socket("127.0.0.1", 6017); /* make connection to server socket */
-            InputStream in = sock.getInputStream(); /* Where to get the input stream from socket */
-            BufferedReader bin = new BufferedReader(new InputStreamReader(in)); /* Read the quote from the socket */
+            /* make connection to server socket */
+            Socket sock = new Socket("127.0.0.1", 6017); 
+            
+            /* Where to get the input stream from socket */
+            InputStream in = sock.getInputStream(); 
+           
+            /* Read the quote from the socket */
+            BufferedReader bin = new BufferedReader(new InputStreamReader(in)); 
             
             String line;
-            while ((line = bin.readLine()) != null) /* True if socket contain anything */
+            /* True if socket contain anything */
+            while ((line = bin.readLine()) != null) 
                 System.out.println(line); 
-            sock.close(); /* close the socket connection */
+            
+            /* close the socket connection */
+            sock.close(); 
         } catch (IOException ioe) {
-            System.err.println(ioe); /* Prints exception if it couldnt establish connection to socket and read/write */
+            System.err.println(ioe);
         }
     }
 }
