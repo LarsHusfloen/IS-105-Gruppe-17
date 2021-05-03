@@ -10,6 +10,8 @@ int main()
 
     printf("Enter the number to run: "); 
     input = scanf("%d", &num);                   
+    
+    /* makes sure the number is a positiv integer */
     if (num <= 0 || input != 1)
     {                                                     
         printf("The number must be a positiv integer.\n"); 
