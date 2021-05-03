@@ -16,12 +16,15 @@ public class quoteserver {
             /* Listens for connections */
             ServerSocket sock = new ServerSocket(6017); 
             while (true) {                              
+                
                 /* Establish the connection to the socket */
                 Socket client = sock.accept();          
+                
                 /* How to write to the socket */
                 PrintWriter pout = new PrintWriter(client.getOutputStream(), true); 
                 pout.println("Quote of the day:");      
                 pout.println(quotes.get(rand.nextInt(quotes.size())));
+                
                 /* close the socket and resume */
                 client.close();                         
             }
