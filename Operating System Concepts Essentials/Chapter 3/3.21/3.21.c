@@ -8,7 +8,7 @@ int main()
     pid_t pid; 
     int num, input;   
 
-    printf("Enter the number to run: "); 
+    printf("Enter a positive number to run: "); 
     input = scanf("%d", &num);                   
     
     /* makes sure the number is a positiv integer */
