@@ -1,3 +1,6 @@
+/* Deler av kode hentet eller modifisert fra 
+Silverschatz figure 3.22 side 139 */
+
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
@@ -7,24 +10,35 @@ public class echoclient {
         Scanner sc = new Scanner(System.in); 
 
         try {
-            Socket sock = new Socket("127.0.0.1", 6017);                            /* make connection to server socket */
-            PrintWriter pout = new PrintWriter(sock.getOutputStream(), true);       /* How to write to the socket */
-            InputStream in = sock.getInputStream();                                 /* Where to get the input stream from socket */
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));  /* Output from the server */
+            /* make connection to server socket */
+            Socket sock = new Socket("127.0.0.1", 6017);                            
+            
+            /* How to write to the socket */
+            PrintWriter pout = new PrintWriter(sock.getOutputStream(), true);       
+            
+            /* Where to get the input stream from socket */
+            InputStream in = sock.getInputStream();                                 
+           
+            /* Output from the server */
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in)); 
 
             System.out.println("Please insert input: "); 
-            String bin = sc.nextLine(); /* Assigns the input from user to string bin */
-            pout.println(bin);          /* Puts bin in the socket */
-            sc.close();                 /* Closes the scanner */
-
+            String bin = sc.nextLine(); 
+            
+            /* Puts bin in the socket and closes scanner*/
+            pout.println(bin);          
+            sc.close();   
+            
+            /* Runs until the end of the stream */
             do {
                 System.out.println(reader.readLine()); 
-            } while (reader.read() != -1);  /* Runs until the end of the stream */
+            } while (reader.read() != -1);  
             
-            sock.close(); /* close the socket connection */
+            /* close the socket connection */
+            sock.close(); 
             System.exit(0);
         } catch (IOException ioe) {
-            System.err.println(ioe); /* Prints exception if it couldnt establish connection to socket and read/write */
+            System.err.println(ioe); 
         }
     }
 }
