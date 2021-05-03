@@ -38,7 +38,7 @@ int main()
     ptr = mmap(0, size, PROT_WRITE, MAP_SHARED, shm_fd, 0); 
 
     printf("Enter a positiv number to run through The Collatz conjecture: "); 
-    intput = scanf("%d", &num);                                                        
+    input = scanf("%d", &num);                                                        
     if (num <= 0 || input != 1)
     {                                                      
         printf("The number must be a positiv integer.\n"); 
