@@ -14,7 +14,7 @@ Silverschatz figure 3.17 og 3.18 side 132 & 133 */
 int main()
 {
     pid_t pid;                    
-    int num, intput, shm_fd, size = 4096; 
+    int num, input, shm_fd, size = 4096; 
     char *name = "SharedMemory";  
     
     /* Setts the pointer to be used to transfer the data to and from the shared memory */
