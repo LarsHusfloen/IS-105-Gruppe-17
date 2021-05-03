@@ -6,11 +6,11 @@
 int main()
 {
     pid_t pid; 
-    int num;   
+    int num, input;   
 
     printf("Enter the number to run: "); 
-    scanf("%d", &num);                   
-    if (num <= 0)
+    input = scanf("%d", &num);                   
+    if (num <= 0 || input != 1)
     {                                                     
         printf("The number must be a positiv integer.\n"); 
         exit(0);                                           
@@ -34,6 +34,8 @@ int main()
         while (num > 1)                    
         {
             printf("%d\n", num);
+            
+            /* Checks if num is even or odd */
             if (num % 2 == 0)    
             {
                 num = num / 2; 
