@@ -14,7 +14,7 @@ Silverschatz figure 3.17 og 3.18 side 132 & 133 */
 int main()
 {
     pid_t pid;                    
-    int num, shm_fd, size = 4096; 
+    int num, intput, shm_fd, size = 4096; 
     char *name = "SharedMemory";  
     
     /* Setts the pointer to be used to transfer the data to and from the shared memory */
@@ -38,8 +38,8 @@ int main()
     ptr = mmap(0, size, PROT_WRITE, MAP_SHARED, shm_fd, 0); 
 
     printf("Enter a positiv number to run through The Collatz conjecture: "); 
-    scanf("%d", &num);                                                        
-    if (num <= 0)
+    intput = scanf("%d", &num);                                                        
+    if (num <= 0 || input != 1)
     {                                                      
         printf("The number must be a positiv integer.\n"); 
         exit(0);                                           
