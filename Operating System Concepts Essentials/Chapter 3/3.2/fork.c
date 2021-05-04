@@ -1,3 +1,6 @@
+/* Koden hentet fra Silverschatz
+ figure 3.31 side 150 */
+
 #include <stdio.h> 
 #include <sys/types.h> 
 #include <unistd.h>
